@@ -1,0 +1,12 @@
+{
+  "name": "spike_drag-table",
+  "version": "1",
+  "main": "index.html",
+  "repository": "https://github.com/fabiopicolijr/spike_drag-table.git",
+  "author": "Fábio Picoli <fabiopicolijr@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "bootstrap": "4.5.3",
+    "jquery": "3.6.0"
+  }
+}
