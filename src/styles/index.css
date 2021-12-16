@@ -1,0 +1,274 @@
+.manage-panel {
+  color: #212529;
+}
+
+/* Gerenciar Painel: HEADER */
+.manage-panel .modal-header {
+  border: solid 1px #e3e3e3;
+  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.05);
+
+  padding: 0.5rem 1.5rem;
+}
+
+.manage-panel .modal-title {
+  font-weight: bold;
+  font-size: 1.75rem;
+  color: #212529;
+}
+
+.modal--confirm-reopen .modal-title {
+  font-weight: bold;
+  font-size: 1.3rem;
+  color: #212529;
+}
+
+.modal--confirm-reopen .modal-body {
+  color: #212529;
+}
+
+.nav-link {
+  color: #006699;
+}
+
+/* Gerenciar Painel: BODY */
+.manage-panel .modal-body {
+  padding: 2rem 1.5rem;
+}
+
+.manage-panel .nav-tabs {
+  margin-bottom: 2rem;
+}
+
+.manage-panel .tab-content strong {
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.manage-panel .tab-content strong span {
+  color: #dc3545;
+}
+
+.icons {
+  display: flex;
+  gap: 1.5rem 0.75rem;
+  flex-wrap: wrap;
+
+  margin-bottom: 1.5rem;
+}
+
+.icons .icon {
+  width: 130px;
+  height: 100px;
+  border: solid 1px transparent;
+  cursor: pointer;
+
+  padding: 0.2rem 0 0.5rem 0;
+  margin-right: 0.65rem;
+
+  display: flex;
+  justify-content: center;
+
+  opacity: 0.5;
+}
+
+.icons .icon:last-child {
+  margin-right: 0;
+}
+
+.icons .icon--is-hovered {
+  opacity: 1;
+  border-radius: 5px;
+
+  box-shadow: 0 0 8px 0 rgba(76, 108, 84, 0.15);
+  border: solid 1px transparent;
+}
+
+.icons .icon img {
+  height: 100%;
+}
+
+.icon .circle {
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  border: 2px solid #676767;
+
+  margin-top: 0.2rem;
+
+  position: relative;
+}
+
+.icon .circle svg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.locker {
+  color: #676767;
+}
+
+.locker--transparent {
+  color: transparent !important;
+}
+
+.icon .circle svg.check {
+  display: none;
+}
+
+.icons .icon--is-clicked {
+  border-radius: 5px;
+  box-shadow: 0 0 8px 0 rgba(76, 108, 84, 0.15);
+  border: solid 1px #28a745 !important;
+
+  opacity: 1;
+}
+
+.icon--is-clicked .circle {
+  background-color: #28a745;
+  border: 0;
+}
+
+.icon--is-clicked svg.locker {
+  display: none !important;
+}
+
+.icon--is-clicked svg.check {
+  display: block !important;
+  color: #fff;
+}
+
+.manage-panel .tab-content textarea {
+  width: 100%;
+  padding: 1rem;
+
+  border: 1px solid #dee2e6;
+}
+
+.manage-panel .tab-content textarea::placeholder {
+  color: #bec6cc;
+}
+
+/* Gerenciar Painel: FOOTER */
+.manage-panel .modal-footer {
+  border: 0;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+
+  padding: 0 1.5rem 1rem 1.5rem;
+}
+
+.manage-panel .modal-footer > div {
+  display: flex;
+}
+
+.manage-panel .manage-panel__reopen-link {
+  color: #006699;
+  font-size: 0.75rem;
+  cursor: pointer;
+}
+
+.manage-panel .modal-footer > div:last-child {
+  justify-content: flex-end;
+}
+
+.manage-pagination-ol {
+  z-index: 15;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: center;
+  justify-content: center;
+  padding-left: 0;
+  margin-right: 15%;
+  margin-left: 15%;
+  list-style: none;
+}
+
+.manage-pagination-line {
+  box-sizing: content-box;
+  width: 1.875rem;
+  height: 0.188rem;
+  margin-right: 0.188rem;
+  margin-left: 0.188rem;
+  margin-top: 1.3rem;
+  text-indent: -999px;
+  background-color: #d8d8d8;
+  background-clip: padding-box;
+  border-top: 0.625rem solid transparent;
+  border-bottom: 0.625rem solid transparent;
+}
+
+.manage-pagination-line--is-selected {
+  background-color: #b3b3b3;
+}
+
+.manage-pagination-line--is-released {
+  background-color: #056a9b;
+}
+
+.manage-pagination-line--is-clickable {
+  cursor: pointer;
+}
+
+.info-icons-reopening {
+  display: flex;
+  justify-content: center;
+}
+
+.reason-reopening {
+  height: 2.688rem;
+  width: 46.875rem;
+  background-color: #f8f9fa;
+  margin-left: 0.1rem;
+}
+
+.title-icons-reopening {
+  font-weight: bold;
+}
+
+.subtitle-icons-reopening {
+  font-size: 12px;
+}
+
+.text-reason-reopening {
+  position: relative;
+  max-width: 120ch;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 0.875rem;
+  top: 0.7rem;
+}
+
+.icon-reason-reopening {
+  position: relative;
+  top: 0.6rem;
+  left: 1rem;
+  cursor: pointer;
+}
+
+.modal--manage-panel,
+.modal--confirm-reopen {
+  overflow-y: auto;
+}
+
+.modal--confirm-reopen {
+  overflow-y: auto;
+  text-align: center;
+  padding: 0 !important;
+}
+
+.modal--confirm-reopen:before {
+  content: '';
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+  margin-right: -4px;
+}
+
+.modal--confirm-reopen .modal-dialog {
+  display: inline-block;
+  text-align: left;
+  vertical-align: middle;
+}

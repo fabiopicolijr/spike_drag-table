@@ -1,0 +1,5 @@
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  .manage-panel .icons .icon {
+    margin: 0 0.5rem 1.5rem 0;
+  }
+}

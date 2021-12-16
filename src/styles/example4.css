@@ -1,0 +1,13 @@
+.parent {
+  width: 300px;
+  overflow-x: hidden;
+
+  border: 5px solid red;
+}
+.child {
+  width: 1000px;
+  font-size: 15px;
+  font-family: arial;
+  padding: 10px;
+  cursor: pointer;
+}

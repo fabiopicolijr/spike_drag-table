@@ -1,0 +1,1 @@
+$( "#element" ).draggable({ axis: "x" });
