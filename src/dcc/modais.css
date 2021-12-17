@@ -1,0 +1,139 @@
+
+/* Modals */
+.modal-header {
+    height: 2.5rem; 
+    border-bottom: 0 none; 
+}
+
+.modal-title{
+    font-size: 1.75rem;
+    font-weight: bold;
+    color: #212529;
+}
+
+.title-task{
+    font-weight: bold;
+    font-size: 0.813rem;
+    color: #212529;
+}
+
+.task-description{
+    font-size: 0.813rem;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #212529;
+    margin-left: 1rem; 
+}
+
+.table-td{
+    font-size: 0.813rem;
+    color: #6c757d;
+}
+
+.status__task{
+    font-size: 13px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    
+}
+    .status__task--not-started{
+     color:#888f9a;      
+    }
+
+    .status__task--on-time{
+      color: #17a2b8;      
+    }
+
+    .status__task--finished{
+     color: #28a745;      
+    }
+
+    .status__task--expires-today{
+     color: #ffc107;      
+    }
+
+    .status__task--delayed{
+     color: #dc3545;      
+    }
+
+.modal-subtitle{
+    font-size: 1rem;
+    text-align: center;
+    color: #212529;
+}
+
+.Oval {
+    width: 4px;
+    height: 4px;
+    margin: 10px 16px 2px;
+    background-color: #252a2f;
+}
+
+.line-modal{
+    position: relative;
+    left: -1rem;
+    top: 1rem;
+    width: 100%;
+  }
+    .line-modal__line{                      
+      width: 102.7%; 
+      border-bottom: 1px solid #d8d8d8;
+      box-shadow: 0px 2.5px 6px 0.8px #d8d8d8;
+    } 
+
+.modal-body{
+    font-size: 0.75rem;
+    min-height: 20rem
+}
+
+.tasks{
+    position: relative;
+    top: 1rem; 
+    table-layout: fixed;
+}
+
+    .tasks thead th, .tasks thead td{
+        border: 0;
+    }
+
+    .tasks tbody th, .tasks tbody td{
+        border-top: 1px dashed #dee2e6;
+    }
+
+    .tasks th.tasks--column-first{          
+        width: 25rem;
+        text-align: left;                    
+    }
+
+.border-footer{
+    margin-top: 4rem;
+}
+
+.modal-footer{
+    border-top: 0 none;
+}
+
+.sem-resultados .card{
+    height: 11rem;
+    padding: 0 5rem;
+
+    font-size: 1.25rem;
+    background-color: #f8f9fa;
+    border: none;
+}
+
+.status-footer{
+    padding: 0.4rem;
+    text-align: left; 
+    margin-right: 1rem; 
+}
+    .status-footer--task{
+        font-weight: bold;
+        color: #212529;
+    }

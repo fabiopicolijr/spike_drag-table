@@ -1,0 +1,1066 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+		integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+	<link rel="stylesheet" href="..\..\node_modules\bootstrap\dist\css\bootstrap.min.css">
+	<link rel="stylesheet" href="dcc-default.css">
+	<link rel="stylesheet" href="spike-table.css">
+	<link rel="stylesheet" href="londing.css">
+	<link rel="stylesheet" href="modais.css">
+
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+	<script src="..\..\node_modules\bootstrap\dist\js\bootstrap.min.js" defer></script>
+
+
+</head>
+
+<body>
+	<div class="container p-0">
+		<header class="row pt-4 p-0 mx-0">
+			<div class="row col-12 m-0">
+				<div class="select-date col-4 p-0">
+					<button id="js_month_backward" type="button"
+						class="btn btn-outline-primary btn-sm js-select-date__button">&lt</button>
+					<span class="select-date__month pl-2"></span>
+					<span class="select-date__year pr-2"></span>
+					<button id="js_month_forward" type="button"
+						class="btn btn-outline-primary btn-sm js-select-date__button">&gt</button>
+				</div>
+				<div class="col-3 d-flex align-items-center justify-content-center">
+					<div class="panel">
+						<div class="circular-loading">
+							<div class="circular-loading-value">
+								<svg id="locker" xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="currentColor"
+									class="bi bi-lock-fill" viewBox="0 0 16 16">
+									<path
+										d="M11 1a2 2 0 0 0-2 2v4a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h5V3a3 3 0 0 1 6 0v4a.5.5 0 0 1-1 0V3a2 2 0 0 0-2-2z" />
+								</svg>
+							</div>
+							<div class="circular-loading__left">
+								<div class="circular-loading__left-inner">
+									<div class="circular-loading__left-progress"></div>
+								</div>
+							</div>
+							<div class="circular-loading__right">
+								<div class="circular-loading__right-inner">
+									<div class="circular-loading__right-progress"></div>
+								</div>
+							</div>
+						</div>
+						<div class="little-clock__title">
+							<span>Painel Aberto</span>
+							<span></span>
+							<!-- <button type="button" class="btn btn-sm panel__btn shadow-none">Reabrir Ícone</button> -->
+						</div>
+					</div>
+				</div>
+				<div class="col-5 p-0 d-flex justify-content-end">
+					<div class="payment-info mr-4 d-none" id="paymentFortnightly">
+						<span class="payment-info__label">Pagamento Quinzenal</span>
+						<span class="payment-info__date"></span>
+					</div>
+					<div class="payment-info mr-4 d-none" id="paymentMonthly">
+						<span class="payment-info__label">Pagamento Mensal</span>
+						<span class="payment-info__date"></span>
+					</div>
+					<div class="payment-info d-none" id="paymentClosing">
+						<span class="payment-info__label">Encerramento Folha</span>
+						<span class="payment-info__date"></span>
+					</div>
+				</div>
+			</div>
+			<div class="row col-12 mt-4 mx-0">
+				<div class="col-9 d-flex p-0">
+					<div class="status">
+						<div class="status__legend status__legend--delayed border"><span class="statusNumberDelayed"></span>
+							Atrasado</div>
+					</div>
+					<div class="status">
+						<div class="status__legend status__legend--expires-today"><span class="statusNumberExpiresToday"></span>
+							Expira Hoje</div>
+					</div>
+					<div class="status">
+						<div class="status__legend status__legend--on-time"><span class="statusNumberOnTime"></span> No Prazo</div>
+					</div>
+					<div class="status">
+						<div class="status__legend status__legend--finished"><span class="statusNumberFinished"></span> Concluído
+						</div>
+					</div>
+					<div class="status">
+						<div class="status__legend status__legend--not-started"><span class="statusNumberNotStarted"></span> Não
+							Iniciado</div>
+					</div>
+				</div>
+				<div class="col-3 d-flex p-0 justify-content-end">
+					<div class="custom-control custom-switch show-events">
+						<input type="checkbox" class="custom-control-input" id="show_events">
+						<label class="custom-control-label" for="show_events">
+							Exibir somente meus eventos
+							<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="currentColor"
+								class="bi bi-info-circle-fill" viewBox="0 0 16 16">
+								<path
+									d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z" />
+							</svg>
+						</label>
+					</div>
+				</div>
+			</div>
+		</header>
+
+		<div id="js_wrapper_schedule" class="row col-12 mx-0 mt-4">
+			<div class="line-wrapper">
+				<div class="line-wrapper__line"></div>
+			</div>
+		</div>
+
+		<div id="box-no-schedule" class="sem-resultados mt-4">
+			<div class="card card-block">
+				<div class="card-body align-items-center d-flex justify-content-center">
+					<span class="title__msg"></span>
+				</div>
+				<div class="card-body align-items-center d-flex justify-content-center">
+					<span class="text-msg"></span>
+				</div>
+			</div>
+		</div>
+
+		<div id="js_schedule_spinner" class="text-center d-none">
+			<div class="spinner-border" role="status">
+				<span class="sr-only">Carregando...</span>
+			</div>
+		</div>
+		<div class="row col-12 mx-0 mt-5"></div>
+
+		<!-- Modal.Tarefas -->
+		<div class="modal fade" id="modal_tasks" tabindex="-1" aria-labelledby="tasksEvents" aria-hidden="true">
+			<div class="modal-dialog modal-xl">
+				<div class="modal-content">
+					<div class="modal-header">
+						<span class="modal-title"></span>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<form>
+							<div class="form-group d-flex">
+								<span class="modal-subtitle" id="idModalNameGroup"></span>
+								<div class="Oval"></div>
+								<span class="modal-subtitle" id="idModalResponsible"></span>
+							</div>
+							<div class="form-group line-modal">
+								<div class="line-modal__line"></div>
+							</div>
+
+							<div class="form-group">
+								<table id="list_task" class="table tasks">
+									<thead style="border: none;">
+										<tr>
+											<th class="tasks--column-first" scope="col">Tarefas Relacionadas</th>
+											<th scope="col">Solicitado em:</th>
+											<th scope="col">Processado em:</th>
+											<th scope="col">Encerrado em:</th>
+											<th scope="col">Status</th>
+										</tr>
+									</thead>
+									<tbody></tbody>
+								</table>
+							</div>
+							<div class="form-group">
+								<hr class="border-footer">
+							</div>
+							<div class="status-footer d-flex">
+								<div class="status-footer" id="idStatusTotalDiv">
+									<span class="status-footer--task" id="idStatusTotal"></span><span class="status-footer--task"> tarefa
+									</span><span id="idDescriptionStatusTask"></span>
+								</div>
+								<div class="status-footer">
+									<span class="status-footer--task" id="idFinished"></span><span class="status-footer--task">
+										tarefa</span><span> concluído</span>
+								</div>
+							</div>
+						</form>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script language="JavaScript">
+		const idServer = 'local';
+
+		// Pollyfils
+		if ('NodeList' in window && !NodeList.prototype.forEach) {
+			NodeList.prototype.forEach = function (callback, thisArg) {
+				thisArg = thisArg || window;
+				for (var i = 0; i < this.length; i++) {
+					callback.call(thisArg, this[i], i, this);
+				}
+			};
+		}
+
+		// HTTP			
+		function httpGetScheduleGroups(monthSchedule, isMyEvents, paymentDate, server) {
+			addLondingSpinner();
+			if (server === 'adp') {
+				$.get("`bmurl('cronograma4x.htm')`", {
+					"servico": "buscarGruposCronograma",
+					"anoCronog": monthSchedule.getFullYear(),
+					"mesCronog": monthSchedule.getMonth() + 1,
+					"meusEventos": isMyEvents
+				})
+					.done(function (result) {
+						createSchedule(monthSchedule, paymentDate, result);
+					})
+					.fail(function (result) {
+						console.log(result.dsMensagens)
+					});
+			} else {
+				// Roda num servidor local HTML, desde que voce tenha o arquivo json no root.
+				loadJSON('groupsEvents.json', function (response) {
+					const result = JSON.parse(response);
+					createSchedule(monthSchedule, paymentDate, result);
+
+				});
+			}
+		};
+
+		function httpGetPaymentDate(scheduleDate, isMyEvents, server) {
+
+			if (server === 'adp') {
+				$.get("`bmurl('cronograma4x.htm')`", {
+					"servico": "buscarDatasFolhas",
+					"anoCronog": scheduleDate.getFullYear(),
+					"mesCronog": scheduleDate.getMonth() + 1
+				})
+					.done(function (result) {
+						updateDataHeadSchedule(scheduleDate, result);
+						httpGetScheduleGroups(scheduleDate, isMyEvents, result, idServer);
+					})
+					.fail(function (result) {
+						console.log(result.dsMensagens)
+					});
+			} else {
+				// Roda num servidor local HTML, desde que voce tenha o arquivo json no root.
+				loadJSON('datasFolha.json', function (response) {
+					const result = JSON.parse(response);
+					updateDataHeadSchedule(scheduleDate, result);
+					httpGetScheduleGroups(scheduleDate, isMyEvents, result, idServer);
+				});
+			}
+		}
+
+		function httpGetTasksEvent(rowId, statusEvent, scheduleDate, server) {
+
+			if (server === 'adp') {
+				$.get("`bmurl('cronograma4x.htm')`", {
+					"servico": "buscarDetalheEvento",
+					"rowEvento": rowId,
+					"statusEve": statusEvent,
+					"anoCronog": scheduleDate.getFullYear(),
+					"mesCronog": scheduleDate.getMonth() + 1
+				})
+					.done(function (result) {
+						updateDetailEvents(result);
+					})
+					.fail(function (result) {
+						console.log(result.dsMensagens)
+					});
+			} else {
+				// Roda num servidor local HTML, desde que voce tenha o arquivo json no root.
+				loadJSON('dataTask.json', function (response) {
+					const result = JSON.parse(response);
+					updateDetailEvents(result);
+				});
+			}
+		}
+
+		function loadJSON(file, callback) {
+
+			const request = new XMLHttpRequest();
+
+			request.overrideMimeType("application/json");
+			request.open('GET', file, true);
+
+			request.onreadystatechange = function () {
+
+				if (request.readyState == 4 && request.status == "200") {
+					callback(request.responseText);
+				}
+
+				if (request.status == "404") {
+					console.log("Erro ao carregar o JSON: " + file + " " + request.status);
+				}
+			};
+
+			request.send(null);
+		}
+
+		// Prototype
+		String.prototype.toCapitalizeCase = function () {
+			const word = this.substr(0, 1).charCodeAt(0) === 8206
+				? this.substr(1) // IE fix
+				: this.substr(0);
+			return word.charAt(0).toUpperCase() + word.substr(1).toLowerCase();
+		};
+
+		String.prototype.toProperCase = function () {
+			const words = this.split(" ");
+
+			const properCase = words.map(function (word) {
+
+				return String(word).length >= 3
+					? word.toCapitalizeCase()
+					: word.toLowerCase();
+			});
+
+			return properCase.join(" ");
+		};
+
+		//jquery
+		$('.js-select-date__button').click(function () {
+
+			const buttonId = $(this).attr("id");
+			const year = Number($(".select-date__year").text());
+			const month = getMonthIndexByName($(".select-date__month").text());
+
+			const newSelectedDate = buttonId === "js_month_forward"
+				? addMonthInDate(new Date(year, month, 1))
+				: subtractMonthInDate(new Date(year, month, 1));
+
+			changeScheduleDateHTML(newSelectedDate);
+
+			reloadSchedule(newSelectedDate);
+		});
+
+		$('.custom-control-input').click(function () {
+			const year = Number($(".select-date__year").text());
+			const month = getMonthIndexByName($(".select-date__month").text());
+			const newSelectedDate = new Date(year, month, 1);
+
+			reloadSchedule(newSelectedDate);
+		});
+
+		$('#modal_tasks').on('show.bs.modal', function (event) {
+			const year = Number($(".select-date__year").text());
+			const month = getMonthIndexByName($(".select-date__month").text());
+			const newDate = new Date(year, month, new Date().getUTCDate())
+			const button = $(event.relatedTarget);
+			const eventRowid = button.data('rowd');
+			const eventStatus = button.data('statusevent');
+
+			httpGetTasksEvent(eventRowid, eventStatus, newDate, idServer);
+		})
+
+		//functions javascript
+
+		function reloadSchedule(newSelectedDate) {
+			const ischeckedMyEvents = $("#show_events").is(":checked");
+			removeSchedule();
+			httpGetPaymentDate(newSelectedDate, ischeckedMyEvents, idServer);
+		}
+
+		function removeSchedule() {
+			const tbodyElement = document.getElementById('js-tbody-table');
+			tbodyElement.parentNode.removeChild(tbodyElement);
+		}
+
+		function addEventClickCollapse() {
+
+			$('.js-collapse').click(function () {
+				const collapseControl = this;
+				const childCollapse = $("#" + $(this).attr("data-target"));
+
+				childCollapse.collapse('toggle');
+
+				childCollapse.on('shown.bs.collapse', function () {
+					$(collapseControl).find(".bi-caret-down-fill").hide().addClass("d-none");
+					$(collapseControl).find(".bi-caret-up-fill").removeClass("d-none").show();
+				})
+
+				childCollapse.on('hidden.bs.collapse', function () {
+					$(collapseControl).find(".bi-caret-down-fill").show().removeClass("d-none");
+					$(collapseControl).find(".bi-caret-up-fill").addClass("d-none").hide();
+				})
+				syncDelay(500);
+			});
+		}
+
+		function changeScheduleDateHTML(date) {
+			const monthName = date.toLocaleString('pt-BR', { month: 'long' }).toCapitalizeCase();
+			const year = date.getFullYear();
+
+			$(".select-date__month").text(monthName);
+			$(".select-date__year").text(year);
+		}
+
+		function getMonthIndexByName(monthName) {
+
+			const months = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho",
+				"Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
+
+			return (months.indexOf(monthName));
+		};
+
+		function panelLockFunction() {
+
+			let executed = false;
+
+			return function (execute) {
+				if (!executed && execute) {
+					executed = true;
+					return "<span class='panel-blocked'>Bloqueio do Painel</span>";
+				} else {
+					return "";
+				}
+			};
+		}
+
+		function updateDetailEvents(result) {
+			$("#idFinished").text(result.ttdetalhes[0].totalConc);
+			$(".modal-title").text(result.ttdetalhes[0].eventoNome.toProperCase().slice(0, 60));
+			$("#idModalNameGroup").text('Grupo ' + result.ttdetalhes[0].grupoOrdem + ' - ' + result.ttdetalhes[0].grupoNome.toProperCase().slice(0, 39) + '  ')
+
+			const responsible = result.ttdetalhes[0].responsavel.toLowerCase() === 'adp'
+				? result.ttdetalhes[0].responsavel.toUpperCase()
+				: result.ttdetalhes[0].responsavel;
+
+			$("#idModalResponsible").text('  Responsável - ' + responsible);
+
+			if (result.ttdetalhes[0].statusTotal > 0) {
+				$("#idStatusTotalDiv").show();
+				$("#idStatusTotal").text(result.ttdetalhes[0].statusTotal);
+				$("#idDescriptionStatusTask").text(getDescriptionStatusTask(result.ttdetalhes[0].statusEvento).toLowerCase());
+			} else {
+				$("#idStatusTotalDiv").hide();
+			}
+			updateTasksTable(result.ttdetalhes[0].ttbporeq);
+		}
+
+		function updateTasksTable(ttbporeq) {
+			const statusEventCSS = getStatusEvent();
+
+			$("#list_task tbody").empty();
+
+			$.each(ttbporeq, function (index, task) {
+
+				$("#list_task tbody").append(
+					'<tr>' +
+					'<td> <span class="title-task">' + task.numBporeq + '</span>' + ' ' + '<span class="task-description">' + task.descricao + '</span></td>' +
+					'<td class="table-td">' + isDateValide(task.dtSolicitado) + '</td>' +
+					'<td class="table-td">' + isDateValide(task.dtProcessando) + '</td>' +
+					'<td class="table-td">' + isDateValide(task.dtEncerrado) + '</td>' +
+					'<td class="status__task--' + statusEventCSS.get(String(task.statusBporeq)) + '">' + getDescriptionStatusTask(task.statusBporeq) + '</td>' +
+					'</tr>'
+				);
+			});
+
+		}
+
+		function addStatusTaskCSS(statusTask) {
+			return statusTask === 5
+				? "--delay"
+				: "--on-time";
+		}
+
+		function getDescriptionStatusTask(statusTask) {
+			var descriptionTask = '';
+			switch (statusTask) {
+				case 1:
+					descriptionTask = 'Não iniciado';
+					break;
+				case 2:
+					descriptionTask = 'No Prazo';
+					break;
+				case 3:
+					descriptionTask = 'Concluído';
+					break;
+				case 4:
+					descriptionTask = 'Expira Hoje';
+					break;
+				case 5:
+					descriptionTask = 'Atrasado';
+					break;
+			}
+			return descriptionTask;
+		}
+
+		function isDateValide(dateTest) {
+			return dateTest ? dateTest : '-';
+
+		}
+
+		function addPanelLockClass(monthDay, scheduleDate, ttFolha) {
+			const todaysDay = new Date().getUTCDate();
+			return (monthDay >= ttFolha.inicioBloqueio && monthDay <= ttFolha.fimBloqueio)
+				? "column__blocked"
+				: ""
+		}
+
+		function createTableHTML() {
+			const dinamicTable =
+				'<table class="table schedule" id="js-tbody-table">' +
+				'<thead class="schedule__header" id="js-head-table"></thead>' +
+				'</table>';
+
+			$("#js_wrapper_schedule").append(dinamicTable);
+			$('#js_wrapper_schedule').tooltip({
+				'show': true,
+				'selector': '.bi-text-left',
+				'placement': 'top',
+				'title': 'Ver Detalhes',
+			});
+		}
+
+		function addHeadTable(scheduleDate, ttFolha) {
+			const addPanelLockHTML = panelLockFunction();
+			const monthDays = getMonthDays(scheduleDate);
+
+			let subBlockDays = ttFolha.fimBloqueio - ttFolha.inicioBloqueio;
+			let rangeBlock = (Math.floor(subBlockDays / 2) + ttFolha.inicioBloqueio - 2);
+
+			let dinamicThead =
+				'<tr>' +
+				'<th class="schedule__header--column-first">Grupos / Eventos</th>';
+
+			for (let monthDay = 1; monthDay <= monthDays; monthDay++) {
+				dinamicThead +=
+					'<th class="' + addPanelLockClass(monthDay, scheduleDate, ttFolha) + '">'
+					+ addPanelLockHTML((monthDay >= rangeBlock && monthDay <= rangeBlock && ttFolha.fimBloqueio > 0 && ttFolha.inicioBloqueio < ttFolha.fimBloqueio))
+					+ monthDay
+					+ '</th>';
+			}
+
+			dinamicThead +=
+				'<th class="schedule__header--column-last">Responsável </th>' +
+				'</tr>';
+
+			$("#js-head-table").append(dinamicThead);
+		}
+
+		function addBodyTable(jsonData, paymentDate, monthSchedule) {
+			const groups = jsonData.ttContador[0].ttgrupos;
+			let dinamicTbody = '';
+
+			if (!jsonData.ttContador[0].ttgrupos) {
+				removeMsgDefaultHTML();
+				addMsgDefaultHTML(jsonData.ttContador[0]);
+			}
+			else {
+				removeMsgDefaultHTML();
+			}
+
+			if (groups) {
+				groups.forEach(function (group, index) {
+					if (group.tteventos) {
+						dinamicTbody += addBodyTableGroup(group, index, paymentDate, monthSchedule);
+						dinamicTbody += addBodyTableEvent(group.tteventos, index, paymentDate, monthSchedule);
+					}
+				});
+			}
+
+			$("#js-tbody-table").append(dinamicTbody);
+			addEventClickCollapse();
+		}
+
+		function addTHGroupHTML(groupName) {
+
+			return '<th class="schedule__body--column-first schedule__body--group">' + groupName +
+				'<svg id="abre_icone" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-down-fill bi-caret-down-fill--blue d-none" viewBox="0 0 16 16">' +
+				'<path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>' +
+				'</svg>' +
+				'<svg id="fecha_icone" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-up-fill bi-caret-up-fill--blue" viewBox="0 0 16 16">' +
+				'<path d="m7.247 4.86-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z"/>' +
+				'</svg>' +
+				'</th>';
+		}
+
+		function addMsgDefaultHTML(ttContador) {
+			if (ttContador.statusCronog == 'APR') {
+				$("#box-no-schedule").removeClass('d-none');
+				$("#box-no-schedule").find(".title__msg").text("Cronograma em aprovação").addClass('title__msg--on-approval');
+				$("#box-no-schedule").find(".text-msg").html("Este cronograma está aguardando aprovação, e assim <br> que for validado, será exibido aqui");
+			} else if (ttContador.statusCronog == 'CON') {
+				$("#box-no-schedule").removeClass('d-none');
+				$("#box-no-schedule").find(".title__msg").text("Cronograma em construção").addClass('title__msg--in-build');
+				$("#box-no-schedule").find(".text-msg").html("Este cronograma encontra-se em fase de construção e<br> após a conclusão, ficará disponível para aprovação");
+			} else {
+				$("#box-no-schedule").removeClass('d-none');
+				$("#box-no-schedule").find(".title__msg").text("Cronograma inexistente").addClass('title__msg--not-exist');
+				$("#box-no-schedule").find(".text-msg").html("Não existe um cronograma criado para esta data.<br> Entre em contato com a ADP para mais informações.");
+			}
+		}
+
+		function removeMsgDefaultHTML() {
+			$("#box-no-schedule").addClass('d-none');
+			$("#box-no-schedule").find(".title__msg").removeClass('title__msg--on-approval');
+			$("#box-no-schedule").find(".title__msg").removeClass('title__msg--in-build');
+			$("#box-no-schedule").find(".title__msg").removeClass('title__msg--not-exist');
+		}
+
+		function addMarkerCSS(day, modifier, monthSchedule) {
+			const todaysDay = new Date().getUTCDate();
+			return day === todaysDay && isActualMonth(monthSchedule) && isActualYear(monthSchedule)
+				? "marker" + modifier
+				: "";
+		}
+
+		function isActualMonth(monthSchedule) {
+			return (new Date().getMonth() + 1 === new Date(monthSchedule).getMonth() + 1 ? true : false);
+		}
+
+		function isActualYear(monthSchedule) {
+			return (new Date().getFullYear() === new Date(monthSchedule).getFullYear() ? true : false);
+		}
+
+		function addLastColumnCSS(day, monthDays) {
+
+			return day != monthDays
+				? ""
+				: "schedule__body--column-last-day";
+		}
+
+		function addStyleIconEventsCSS(isEvent) {
+			return isEvent ? 'bi-text-left--blue" data-toggle="modal" data-target="#modal_tasks"' : 'bi-text-left--gray"';
+		}
+
+		function addCollapseHTML(tteventos, indexGroup) {
+
+			return tteventos
+				? 'class="js-collapse" data-target="group-of-rows-' + indexGroup + '"'
+				: '';
+		}
+
+		function addBodyTableGroup(objectGroup, indexGroup, paymentDate, monthSchedule) {
+			const paymentDateObject = paymentDate.dsFolha.ttfolha[0];
+			let monthDays = getMonthDays(monthSchedule);
+			let dinamicTbodyGroup = '<tbody class="schedule__body">';
+			let paramColorMarker = addMarkerColorCSS(paymentDate);
+
+			dinamicTbodyGroup += '<tr ' + addCollapseHTML(objectGroup.tteventos, indexGroup) + '>';
+
+			dinamicTbodyGroup += addTHGroupHTML(objectGroup.grupoNome.toProperCase().slice(0, 39));
+
+			for (let day = 1; day <= (monthDays); day++) {
+				dinamicTbodyGroup += '<td class="' + addLastColumnCSS(day, monthDays) + ' ' + addMarkerCSS(day, paramColorMarker, monthSchedule) + '"></td>';
+			}
+
+			dinamicTbodyGroup += '<td class="schedule__body--column-last"></td>' +
+				'</tr>' +
+				'</tbody>';
+
+			return dinamicTbodyGroup;
+		}
+
+		function getStatusEvent() {
+
+			let statusEvent = new Map();
+
+			statusEvent.set("1", "not-started");
+			statusEvent.set("2", "on-time");
+			statusEvent.set("3", "finished");
+			statusEvent.set("4", "expires-today");
+			statusEvent.set("5", "delayed");
+
+			return statusEvent;
+		}
+
+		function addPlannedCSS(day, event) {
+
+			return (day >= event.eventoDiaInicio) && (day <= event.eventoDiaFim)
+				? "column__planned"
+				: "";
+		}
+
+		function addMarkerColorCSS(paymentDate) {
+			const paymentDateObject = paymentDate.dsFolha.ttfolha[0];
+			const todaysDay = new Date().getUTCDate();
+
+			return (todaysDay >= paymentDateObject.inicioBloqueio && todaysDay <= paymentDateObject.fimBloqueio)
+				? "--red"
+				: "--grey";
+		}
+
+		function addInitDayGanttCSS(event, sizeOneDay) {
+
+			return event.eventoDiaInicio === "01"
+				? 0
+				: (event.eventoDiaInicio - 1) * sizeOneDay;
+		}
+
+		function addWidthGanttCSS(event, sizeOneDay) {
+
+			return (event.eventoStatusDia - event.eventoDiaInicio + 1) * sizeOneDay;
+		}
+
+		function addGanttBar(event, sizeOneDay, statusEvent, statusEventCode) {
+			if (statusEventCode != '0') {
+				return '<div class="gantt__bar gantt__bar--' + statusEvent
+					+ '" style="width:' + addWidthGanttCSS(event, sizeOneDay) + 'rem; left:' + addInitDayGanttCSS(event, sizeOneDay) + 'rem;"></div>';
+			}
+			return '';
+		}
+
+		function getGanttSizeREM(days) {
+			var sizeRem = 0;
+			switch (days) {
+				case 31:
+					sizeRem = 1.378;
+					break;
+				case 30:
+					sizeRem = 1.403;
+					break;
+				case 29:
+					sizeRem = 1.43;
+					break;
+				case 28:
+					sizeRem = 1.458;
+					break;
+			}
+			return sizeRem;
+		}
+
+		function addBodyTableEvent(events, indexGroup, paymentDate, monthSchedule) {
+
+			const statusEventCSS = getStatusEvent();
+			const monthDays = getMonthDays(monthSchedule);
+			const ganttOneDaySizeREM = getGanttSizeREM(monthDays);
+			let paramColorMarker = addMarkerColorCSS(paymentDate);
+
+			let dinamicTbodyEvents = '<tbody class="schedule__body collapse show" id="group-of-rows-' + indexGroup + '">';
+
+			events.forEach(function (event, eventIndex) {
+
+				const responsible = event.eventoNivel.toLowerCase() === 'adp'
+					? event.eventoNivel.toUpperCase()
+					: event.eventoNivel;
+
+				dinamicTbodyEvents +=
+					'<tr class="event_hover">' +
+					'<td class="schedule__body--column-first">' + event.eventoNome.toProperCase().slice(0, 53) + '</td>';
+
+				for (let day = 1; day <= (monthDays); day++) {
+
+					dinamicTbodyEvents += day === 1
+						? '<td class="gantt__wrapper ' + addLastColumnCSS(eventIndex, monthDays) + ' ' + addMarkerCSS(day, paramColorMarker, monthSchedule) + ' ' + addPlannedCSS(day, event) + '">' +
+						addGanttBar(event, ganttOneDaySizeREM, statusEventCSS.get(String(event.eventoStatus)), event.eventoStatus) +
+						'</td>'
+						: '<td class="' + addLastColumnCSS(eventIndex, monthDays) + ' ' + addMarkerCSS(day, paramColorMarker, monthSchedule) + ' ' + addPlannedCSS(day, event) + '"></td>';
+				}
+
+				dinamicTbodyEvents +=
+					'<td class="schedule__body--column-last">' +
+					'<span class="column_last_icon">' + responsible +
+					'<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-text-left ' + addStyleIconEventsCSS(event.eventoTemTarefa) + ' data-rowd="' + event.eventoRowid + '" data-statusEvent="' + event.eventoStatus + '" viewBox="0 0 16 16">' +
+					'<path fill-rule="evenodd" d="M2 12.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z"/>' +
+					'</svg>' +
+					'</span>' +
+					'</td>' +
+					'</tr>';
+			});
+
+			dinamicTbodyEvents += '</tbody>';
+
+			return dinamicTbodyEvents;
+		}
+
+
+		function addMonthInDate(date) {
+			return new Date(date.setMonth(date.getMonth() + 1));
+		}
+
+		function subtractMonthInDate(date) {
+			return new Date(date.setMonth(date.getMonth() - 1));
+		}
+
+		function getMonthDays(anyDateInMonth) {
+			return new Date(anyDateInMonth.getFullYear(), anyDateInMonth.getMonth() + 1, 0).getDate();
+		}
+
+		function createSchedule(scheduleDate, paymentDate, result) {
+			isEnableSwitchMyEvents(result.ttContador[0].meuEvento)
+			updateNumberStatus(result.ttContador[0]);
+			addBodyTable(result, paymentDate, scheduleDate);
+			removeLondingSpinner();
+		}
+
+		function updateDataHeadSchedule(scheduleDate, result) {
+			const objectReturn = result.dsFolha.ttfolha[0];
+			createTableHTML();
+			addHeadTable(scheduleDate, objectReturn);
+			checkPaymentDates(objectReturn);
+			updatePanelStatus(scheduleDate, result.dsFolha.ttfolha[0].inicioBloqueio, result.dsFolha.ttfolha[0].fimBloqueio);
+		}
+
+		function checkPaymentDates(ttFolha) {
+
+			if (ttFolha.datPagQuinzenal) {
+				$("#paymentFortnightly").find(".payment-info__date").text(ttFolha.datPagQuinzenal);
+				$("#paymentFortnightly").removeClass("d-none");
+			} else {
+				$("#paymentFortnightly").addClass("d-none");
+			}
+
+			if (ttFolha.datPagMensal) {
+				$("#paymentMonthly").find(".payment-info__date").text(ttFolha.datPagMensal);
+				$("#paymentMonthly").removeClass("d-none");
+			} else {
+				$("#paymentMonthly").addClass("d-none");
+			}
+
+			if (ttFolha.datEncerraFolha) {
+				$("#paymentClosing").find(".payment-info__date").text(ttFolha.datEncerraFolha);
+				$("#paymentClosing").removeClass("d-none");
+			} else {
+				$("#paymentClosing").addClass("d-none");
+			}
+		}
+
+		function updateNumberStatus(objectStatus) {
+			$(".statusNumberDelayed").text(objectStatus.atrazado);
+			$(".statusNumberExpiresToday").text(objectStatus.expiraHoje);
+			$(".statusNumberOnTime").text(objectStatus.dentroPrazo);
+			$(".statusNumberFinished").text(objectStatus.concluido);
+			$(".statusNumberNotStarted").text(objectStatus.naoIniciado);
+		}
+
+		function syncDelay(milliseconds) {
+			let start = new Date().getTime();
+			let end = 0;
+
+			while ((end - start) < milliseconds) {
+				end = new Date().getTime();
+			}
+		}
+
+		function isEnableSwitchMyEvents(myEvent) {
+			if (!myEvent)
+				$('.custom-control-input').prop("disabled", true);
+		}
+
+		function removeLondingSpinner() {
+			$("#js_schedule_spinner").addClass("d-none");
+		}
+
+		function addLondingSpinner() {
+			$("#js_schedule_spinner").removeClass("d-none");
+		}
+
+		//Script Circular loading------------------------------------------------------------------------------
+		function updatePanelStatus(scheduleDate, inicioBloqueio, fimBloqueio) {
+			if (isActualMonth(scheduleDate) && isActualYear(scheduleDate)) {
+				$(".circular-loading").show();
+				$(".little-clock__title").show();
+				changePanelStatus(inicioBloqueio, fimBloqueio);
+			} else {
+				$(".circular-loading").hide();
+				$(".little-clock__title").hide();
+			}
+		}
+
+		function changePanelStatus(blockInitDay, blockEndDay) {
+			const today = new Date();
+			const openDay = new Date(today.getFullYear(), today.getMonth(), blockEndDay + 1); // + 1 day
+			const openDayFormatted = openDay.getUTCDate() + '/' + (openDay.getMonth() + 1);     // +1 index array[0-11 months].
+			const blockDay = new Date(today.getFullYear(), today.getMonth(), blockInitDay);
+			const blockDayFormatted = blockDay.getUTCDate() + '/' + (blockDay.getMonth() + 1);  // +1 index array[0-11 months].
+			const statusTitle = new Object();
+			const statusTitleHover = new Object();
+			const isPanelClosed = today.getUTCDate() >= blockInitDay && today.getUTCDate() <= blockEndDay
+				? true
+				: false;
+
+			const daysDifference = today.getUTCDate() > blockEndDay
+				? 0
+				: blockInitDay - today.getUTCDate();
+
+			const loadingPercentage = isPanelClosed
+				? percentageToOpenPanel(today, openDay)
+				: percentageToClosePanel(today, blockDay);
+
+			statusTitle.textSpan1 = isPanelClosed ? 'Painel Fechado' : 'Painel Aberto';
+
+			let color;
+
+			if (daysDifference <= 0) {
+				if (!isPanelClosed) {
+					color = '#28a745';
+					statusTitle.classSpan1 = ['green', 'bold'];
+
+					statusTitleHover.classSpan1 = ['grey'];
+					statusTitleHover.textSpan1 = 'Fecha dia';
+					statusTitleHover.classSpan2 = ['green', 'bold'];
+					statusTitleHover.textSpan2 = blockDayFormatted;
+				} else {
+					color = '#939aa5';
+
+					statusTitle.classSpan1 = ['grey', 'bold'];
+
+					statusTitleHover.classSpan1 = ['grey'];
+					statusTitleHover.textSpan1 = 'Abre dia';
+
+					statusTitleHover.classSpan2 = ['grey', 'bold'];
+					statusTitleHover.textSpan2 = openDayFormatted
+				}
+
+			} else if (daysDifference === 1) {
+				color = '#db3e4b';
+
+				statusTitle.classSpan1 = ['red', 'bold'];
+
+				statusTitleHover.classSpan1 = ['grey', 'normal'];
+				statusTitleHover.textSpan1 = 'Fecha';
+				statusTitleHover.classSpan2 = ['red', 'bold'];
+				statusTitleHover.textSpan2 = 'Amanhã';
+			} else if (daysDifference <= 3) {
+				color = '#fcc700';
+
+				statusTitle.classSpan1 = ['yellow', 'bold'];
+
+				statusTitleHover.classSpan1 = ['grey'];
+				statusTitleHover.textSpan1 = 'Fecha em';
+				statusTitleHover.classSpan2 = ['yellow', 'bold'];
+				statusTitleHover.textSpan2 = daysDifference + ' dias';
+
+			} else {
+				color = '#28a745';
+
+				statusTitle.classSpan1 = ['green', 'bold'];
+
+				statusTitleHover.classSpan1 = ['grey'];
+				statusTitleHover.textSpan1 = 'Fecha dia';
+				statusTitleHover.classSpan2 = ['green', 'bold'];
+				statusTitleHover.textSpan2 = blockDayFormatted;
+			}
+
+			changeCircularLoadingColor(color);
+			changeStatusTitle(statusTitle);
+			changeLocker(isPanelClosed);
+
+			if (loadingPercentage !== 0) {
+
+				setCurrentLoading(loadingPercentage);
+
+				document.querySelector('.circular-loading').addEventListener("mouseenter", function (event) {
+					changeStatusTitleHover(statusTitleHover);
+				}, false);
+
+				document.querySelector('.panel').addEventListener("mouseleave", function (event) {
+					changeStatusTitle(statusTitle);
+				}, false);
+			}
+		}
+
+		function percentageToOpenPanel(referenceDate, openingDate) {
+			const totalDaysInMonth = new Date(referenceDate.getFullYear(), referenceDate.getMonth() + 1, 0);
+			const leftDays = openingDate.getUTCDate() - referenceDate.getUTCDate();
+			const daysGoneBy = totalDaysInMonth.getUTCDate() - leftDays;
+
+			if (leftDays <= 0) {
+				return 0;
+			}
+
+			return (daysGoneBy / totalDaysInMonth.getUTCDate()) * 100;
+		}
+
+		function percentageToClosePanel(referenceDate, closingDay) {
+			const totalDaysInMonth = new Date(referenceDate.getFullYear(), referenceDate.getMonth() + 1, 0);
+			const leftDays = totalDaysInMonth.getUTCDate() - closingDay.getUTCDate();
+
+			if (leftDays === 0 || referenceDate.getUTCDate() > closingDay.getUTCDate()) {
+				return 0;
+			}
+
+			return (leftDays / totalDaysInMonth.getUTCDate()) * 100;
+		}
+
+		function changeLocker(isPanelClosed) {
+			const svgPath = {};
+
+			svgPath.d = isPanelClosed
+				? 'M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z'
+				: 'M11 1a2 2 0 0 0-2 2v4a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h5V3a3 3 0 0 1 6 0v4a.5.5 0 0 1-1 0V3a2 2 0 0 0-2-2z';
+
+			document.querySelector('#locker path').setAttribute('d', svgPath.d);
+		}
+
+		function changeStatusTitleHover(statusTitleHover) {
+			const circularLoadingTitleSpan1 = document.querySelector('.little-clock__title span:first-child');
+			const circularLoadingTitleSpan2 = document.querySelector('.little-clock__title span:last-child');
+
+			circularLoadingTitleSpan1.className = '';
+			circularLoadingTitleSpan2.className = '';
+
+			statusTitleHover.classSpan1.forEach(function (className) {
+				circularLoadingTitleSpan1.classList.add(className);
+			});
+
+			circularLoadingTitleSpan1.innerText = statusTitleHover.textSpan1;
+
+			statusTitleHover.classSpan2.forEach(function (className) {
+				circularLoadingTitleSpan2.classList.add(className);
+			});
+
+			circularLoadingTitleSpan2.innerText = statusTitleHover.textSpan2;
+		}
+
+		function changeStatusTitle(statusTitle) {
+			const circularLoadingTitleSpan1 = document.querySelector('.little-clock__title span:first-child');
+			const circularLoadingTitleSpan2 = document.querySelector('.little-clock__title span:last-child');
+
+			circularLoadingTitleSpan1.className = '';
+			circularLoadingTitleSpan2.innerText = '';
+
+			statusTitle.classSpan1.forEach(function (className) {
+				circularLoadingTitleSpan1.classList.add(className);
+			});
+
+			circularLoadingTitleSpan1.innerText = statusTitle.textSpan1;
+		}
+
+		function changeCircularLoadingColor(color) {
+			const locker = document.querySelector('.circular-loading-value svg');
+			const loadingFilling = document.querySelectorAll('.circular-loading__left-progress, .circular-loading__right-progress');
+
+			locker.style.color = color;
+
+			loadingFilling.forEach(function (loading) {
+				loading.style.borderColor = color;
+			});
+		}
+
+		function changePanelStatusHoverText(html) {
+			document.querySelector('.little-clock__box-outside').innerHtml = html;
+		}
+
+		function setCurrentLoading(currentValue) {
+
+			if (currentValue + 1 <= 50) {
+				$('.circular-loading__right-inner').css('transform', 'rotate(' + ((currentValue) * 3.6 + 180) + 'deg)');
+			} else {
+				$('.circular-loading__right-inner').css('transform', 'rotate(' + 360 + 'deg)');
+				$('.circular-loading__left-inner').css('transform', 'rotate(' + ((currentValue) * 3.6) + 'deg)');
+			}
+		}
+
+		//-----------------------------------------------------------------------------------------------------
+
+		//Script OnReady
+		$(document).ready(function () {
+			$("[data-toggle='tooltip']").tooltip();
+			removeMsgDefaultHTML();
+			httpGetPaymentDate(new Date(), false, idServer);
+			changeScheduleDateHTML(new Date());
+		});
+
+	</script>
+</body>
+
+</html>

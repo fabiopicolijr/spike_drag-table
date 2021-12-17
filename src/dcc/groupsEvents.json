@@ -1,0 +1,448 @@
+{
+  "ttContador": [
+      {
+          "naoIniciado": 5,
+          "dentroPrazo": 0,
+          "concluido": 30,
+          "expiraHoje": 0,
+          "atrazado": 0,
+          "meuEvento": true,
+          "statusCronog": "VAL",
+          "ttgrupos": [
+              {
+                  "grupoNome": "TRANSFERÊNCIA JURÍDICA - CAGED",
+                  "grupoOrdem": 10,
+                  "tteventos": [
+                      {
+                          "eventoDiaInicio": "00",
+                          "eventoDiaFim": "00",
+                          "eventoNivel": "cliente",
+                          "eventoNome": "Inputs de Transferência via painel",
+                          "eventoStatus": 0,
+                          "eventoTemTarefa": false,
+                          "eventoStatusDia": "00",
+                          "eventoOrdem": 10,
+                          "eventoRowid ": "0x000000000e81e3a2"
+                      },
+                      {
+                          "eventoDiaInicio": "01",
+                          "eventoDiaFim": "03",
+                          "eventoNivel": "adp",
+                          "eventoNome": "Processamento das Requisições no Painel",
+                          "eventoStatus": 3,
+                          "eventoTemTarefa": true,
+                          "eventoStatusDia": "03",
+                          "eventoOrdem": 20,
+                          "eventoRowid ": "0x000000000e81e3a3"
+                      },
+                      {
+                          "eventoDiaInicio": "02",
+                          "eventoDiaFim": "07",
+                          "eventoNivel": "adp",
+                          "eventoNome": "Envio de Relatórios ao Cliente",
+                          "eventoStatus": 3,
+                          "eventoTemTarefa": true,
+                          "eventoStatusDia": "07",
+                          "eventoOrdem": 30,
+                          "eventoRowid ": "0x000000000e81e3a4"
+                      }
+                  ]
+              },
+              {
+                  "grupoNome": "ADIANTAMENTO QUINZENAL",
+                  "grupoOrdem": 20,
+                  "tteventos": [
+                      {
+                          "eventoDiaInicio": "01",
+                          "eventoDiaFim": "05",
+                          "eventoNivel": "cliente",
+                          "eventoNome": "Inputs Admissões, Rescisões, Férias, Afa",
+                          "eventoStatus": 3,
+                          "eventoTemTarefa": false,
+                          "eventoStatusDia": "05",
+                          "eventoOrdem": 10,
+                          "eventoRowid ": "0x000000000e81e3a5"
+                      },
+                      {
+                          "eventoDiaInicio": "06",
+                          "eventoDiaFim": "07",
+                          "eventoNivel": "adp",
+                          "eventoNome": "Processamento das Requisições no Painel",
+                          "eventoStatus": 3,
+                          "eventoTemTarefa": true,
+                          "eventoStatusDia": "07",
+                          "eventoOrdem": 20,
+                          "eventoRowid ": "0x000000000e81e3a6"
+                      },
+                      {
+                          "eventoDiaInicio": "08",
+                          "eventoDiaFim": "07",
+                          "eventoNivel": "adp",
+                          "eventoNome": "Cálculo e Conferencia do Quinzenal",
+                          "eventoStatus": 3,
+                          "eventoTemTarefa": true,
+                          "eventoStatusDia": "07",
+                          "eventoOrdem": 30,
+                          "eventoRowid ": "0x000000000e81e3a7"
+                      },
+                      {
+                          "eventoDiaInicio": "08",
+                          "eventoDiaFim": "11",
+                          "eventoNivel": "adp",
+                          "eventoNome": "Efetivação Processo Quinzenal",
+                          "eventoStatus": 3,
+                          "eventoTemTarefa": true,
+                          "eventoStatusDia": "11",
+                          "eventoOrdem": 40,
+                          "eventoRowid ": "0x000000000e81e3a8"
+                      },
+                      {
+                          "eventoDiaInicio": "12",
+                          "eventoDiaFim": "11",
+                          "eventoNivel": "adp",
+                          "eventoNome": "Emissão Demonstrativos/Relatórios/Arquiv",
+                          "eventoStatus": 3,
+                          "eventoTemTarefa": true,
+                          "eventoStatusDia": "11",
+                          "eventoOrdem": 50,
+                          "eventoRowid ": "0x000000000e81e3a9"
+                      },
+                      {
+                          "eventoDiaInicio": "01",
+                          "eventoDiaFim": "14",
+                          "eventoNivel": "cliente",
+                          "eventoNome": "Data de Crédito do Adiantamento Quinzena",
+                          "eventoStatus": 3,
+                          "eventoTemTarefa": true,
+                          "eventoStatusDia": "14",
+                          "eventoOrdem": 60,
+                          "eventoRowid ": "0x000000000e81e3aa"
+                      }
+                  ]
+              },
+              {
+                  "grupoNome": "FOLHA DE PAGAMENTO MENSAL",
+                  "grupoOrdem": 30,
+                  "tteventos": [
+                      {
+                          "eventoDiaInicio": "01",
+                          "eventoDiaFim": "22",
+                          "eventoNivel": "adp",
+                          "eventoNome": "Data de Inicio Bloqueio do Painel ",
+                          "eventoStatus": 1,
+                          "eventoTemTarefa": true,
+                          "eventoStatusDia": "21",
+                          "eventoOrdem": 40,
+                          "eventoRowid ": "0x000000000e81e3ad"
+                      },
+                      {
+                          "eventoDiaInicio": "01",
+                          "eventoDiaFim": "24",
+                          "eventoNivel": "adp",
+                          "eventoNome": "Processamento das Requisições no Painel",
+                          "eventoStatus": 1,
+                          "eventoTemTarefa": true,
+                          "eventoStatusDia": "21",
+                          "eventoOrdem": 50,
+                          "eventoRowid ": "0x000000000e81e3ae"
+                      },
+                      {
+                          "eventoDiaInicio": "01",
+                          "eventoDiaFim": "12",
+                          "eventoNivel": "adp",
+                          "eventoNome": "Cálculo e Conferencia da Folha",
+                          "eventoStatus": 3,
+                          "eventoTemTarefa": true,
+                          "eventoStatusDia": "13",
+                          "eventoOrdem": 60,
+                          "eventoRowid ": "0x000000000e81e3af"
+                      },
+                      {
+                          "eventoDiaInicio": "13",
+                          "eventoDiaFim": "26",
+                          "eventoNivel": "adp",
+                          "eventoNome": "Fechamento Definitivo da Folha",
+                          "eventoStatus": 1,
+                          "eventoTemTarefa": true,
+                          "eventoStatusDia": "21",
+                          "eventoOrdem": 70,
+                          "eventoRowid ": "0x000000000e81ea40"
+                      },
+                      {
+                          "eventoDiaInicio": "27",
+                          "eventoDiaFim": "28",
+                          "eventoNivel": "adp",
+                          "eventoNome": "Data Final do Bloqueio do Painel",
+                          "eventoStatus": 1,
+                          "eventoTemTarefa": true,
+                          "eventoStatusDia": "28",
+                          "eventoOrdem": 80,
+                          "eventoRowid ": "0x000000000e81ea41"
+                      },
+                      {
+                          "eventoDiaInicio": "01",
+                          "eventoDiaFim": "16",
+                          "eventoNivel": "adp",
+                          "eventoNome": "teste",
+                          "eventoStatus": 3,
+                          "eventoTemTarefa": true,
+                          "eventoStatusDia": "16",
+                          "eventoOrdem": 110,
+                          "eventoRowid ": "0x0000000034c48100"
+                      }
+                  ]
+              },
+              {
+                  "grupoNome": "Arquivo Contábil",
+                  "grupoOrdem": 40,
+                  "tteventos": [
+                      {
+                          "eventoDiaInicio": "27",
+                          "eventoDiaFim": "28",
+                          "eventoNivel": "adp",
+                          "eventoNome": "Entrega do Arquivo Contábil",
+                          "eventoStatus": 1,
+                          "eventoTemTarefa": true,
+                          "eventoStatusDia": "28",
+                          "eventoOrdem": 10,
+                          "eventoRowid ": "0x000000000e81ea44"
+                      }
+                  ]
+              },
+              {
+                  "grupoNome": "Benefícios",
+                  "grupoOrdem": 60,
+                  "tteventos": [
+                      {
+                          "eventoDiaInicio": "01",
+                          "eventoDiaFim": "14",
+                          "eventoNivel": "cliente",
+                          "eventoNome": "Atualização de cadastro benefícios",
+                          "eventoStatus": 3,
+                          "eventoTemTarefa": true,
+                          "eventoStatusDia": "14",
+                          "eventoOrdem": 10,
+                          "eventoRowid ": "0x000000000e81ea45"
+                      },
+                      {
+                          "eventoDiaInicio": "01",
+                          "eventoDiaFim": "17",
+                          "eventoNivel": "adp",
+                          "eventoNome": "Data da Concessão Benefícios",
+                          "eventoStatus": 3,
+                          "eventoTemTarefa": true,
+                          "eventoStatusDia": "17",
+                          "eventoOrdem": 20,
+                          "eventoRowid ": "0x000000000e81ea46"
+                      },
+                      {
+                          "eventoDiaInicio": "01",
+                          "eventoDiaFim": "18",
+                          "eventoNivel": "adp",
+                          "eventoNome": "Envio de Pedido Benefícios",
+                          "eventoStatus": 3,
+                          "eventoTemTarefa": true,
+                          "eventoStatusDia": "18",
+                          "eventoOrdem": 30,
+                          "eventoRowid ": "0x000000000e81ea47"
+                      }
+                  ]
+              },
+              {
+                  "grupoNome": "ENCARGOS / CONTRIBUIÇÕES / INFORM GOVERN",
+                  "grupoOrdem": 70,
+                  "tteventos": [
+                      {
+                          "eventoDiaInicio": "01",
+                          "eventoDiaFim": "01",
+                          "eventoNivel": "cliente",
+                          "eventoNome": "Informações GPS (cooper/reten/compen/Rec",
+                          "eventoStatus": 3,
+                          "eventoTemTarefa": true,
+                          "eventoStatusDia": "01",
+                          "eventoOrdem": 10,
+                          "eventoRowid ": "0x000000000e81ea48"
+                      },
+                      {
+                          "eventoDiaInicio": "02",
+                          "eventoDiaFim": "04",
+                          "eventoNivel": "adp",
+                          "eventoNome": "Entrega da Guia GPS e Outras Entidades",
+                          "eventoStatus": 3,
+                          "eventoTemTarefa": true,
+                          "eventoStatusDia": "04",
+                          "eventoOrdem": 20,
+                          "eventoRowid ": "0x000000000e81ea49"
+                      },
+                      {
+                          "eventoDiaInicio": "01",
+                          "eventoDiaFim": "18",
+                          "eventoNivel": "cliente",
+                          "eventoNome": "Data de Vencimento da GPS",
+                          "eventoStatus": 3,
+                          "eventoTemTarefa": true,
+                          "eventoStatusDia": "18",
+                          "eventoOrdem": 30,
+                          "eventoRowid ": "0x000000000e81ea4a"
+                      },
+                      {
+                          "eventoDiaInicio": "02",
+                          "eventoDiaFim": "04",
+                          "eventoNivel": "adp",
+                          "eventoNome": "Entrega das Guias/protocolos Sefip",
+                          "eventoStatus": 3,
+                          "eventoTemTarefa": true,
+                          "eventoStatusDia": "04",
+                          "eventoOrdem": 40,
+                          "eventoRowid ": "0x000000000e81ea4b"
+                      },
+                      {
+                          "eventoDiaInicio": "01",
+                          "eventoDiaFim": "07",
+                          "eventoNivel": "adp",
+                          "eventoNome": "Data de Pagamento do FGTS",
+                          "eventoStatus": 3,
+                          "eventoTemTarefa": true,
+                          "eventoStatusDia": "07",
+                          "eventoOrdem": 50,
+                          "eventoRowid ": "0x000000000e81ea4c"
+                      },
+                      {
+                          "eventoDiaInicio": "01",
+                          "eventoDiaFim": "11",
+                          "eventoNivel": "adp",
+                          "eventoNome": "Entrega da DARF Mensal - (Via Painel)",
+                          "eventoStatus": 3,
+                          "eventoTemTarefa": true,
+                          "eventoStatusDia": "11",
+                          "eventoOrdem": 60,
+                          "eventoRowid ": "0x000000000e81ea4d"
+                      },
+                      {
+                          "eventoDiaInicio": "01",
+                          "eventoDiaFim": "18",
+                          "eventoNivel": "cliente",
+                          "eventoNome": "Data de Vencimento da Darf",
+                          "eventoStatus": 3,
+                          "eventoTemTarefa": true,
+                          "eventoStatusDia": "18",
+                          "eventoOrdem": 70,
+                          "eventoRowid ": "0x000000000e81ea4e"
+                      }
+                  ]
+              },
+              {
+                  "grupoNome": "13º SALÁRIO 1ª PARCELA",
+                  "grupoOrdem": 80,
+                  "tteventos": [
+                      {
+                          "eventoDiaInicio": "01",
+                          "eventoDiaFim": "01",
+                          "eventoNivel": "adp",
+                          "eventoNome": "Cálculo e Conferência da Folha",
+                          "eventoStatus": 3,
+                          "eventoTemTarefa": true,
+                          "eventoStatusDia": "01",
+                          "eventoOrdem": 10,
+                          "eventoRowid ": "0x000000000e81ea4f"
+                      },
+                      {
+                          "eventoDiaInicio": "02",
+                          "eventoDiaFim": "01",
+                          "eventoNivel": "adp",
+                          "eventoNome": "Fechamento Definitivo da Folha",
+                          "eventoStatus": 3,
+                          "eventoTemTarefa": true,
+                          "eventoStatusDia": "01",
+                          "eventoOrdem": 20,
+                          "eventoRowid ": "0x000000000e81ea50"
+                      },
+                      {
+                          "eventoDiaInicio": "02",
+                          "eventoDiaFim": "01",
+                          "eventoNivel": "adp",
+                          "eventoNome": "Emissão Relatórios/Arquivo bancário",
+                          "eventoStatus": 3,
+                          "eventoTemTarefa": true,
+                          "eventoStatusDia": "01",
+                          "eventoOrdem": 30,
+                          "eventoRowid ": "0x000000000e81ea51"
+                      },
+                      {
+                          "eventoDiaInicio": "01",
+                          "eventoDiaFim": "01",
+                          "eventoNivel": "cliente",
+                          "eventoNome": "Data do Crédito da 1ª parcela 13º Salári",
+                          "eventoStatus": 3,
+                          "eventoTemTarefa": true,
+                          "eventoStatusDia": "01",
+                          "eventoOrdem": 40,
+                          "eventoRowid ": "0x000000000e81ea52"
+                      }
+                  ]
+              },
+              {
+                  "grupoNome": "13º SALÁRIO 2ª PARCELA",
+                  "grupoOrdem": 90,
+                  "tteventos": [
+                      {
+                          "eventoDiaInicio": "01",
+                          "eventoDiaFim": "01",
+                          "eventoNivel": "adp",
+                          "eventoNome": "Cálculo e Conferência da Folha",
+                          "eventoStatus": 3,
+                          "eventoTemTarefa": true,
+                          "eventoStatusDia": "01",
+                          "eventoOrdem": 10,
+                          "eventoRowid ": "0x000000000e81ea53"
+                      },
+                      {
+                          "eventoDiaInicio": "02",
+                          "eventoDiaFim": "01",
+                          "eventoNivel": "adp",
+                          "eventoNome": "Fechamento Definitivo da Folha",
+                          "eventoStatus": 3,
+                          "eventoTemTarefa": true,
+                          "eventoStatusDia": "01",
+                          "eventoOrdem": 20,
+                          "eventoRowid ": "0x000000000e81ea54"
+                      },
+                      {
+                          "eventoDiaInicio": "02",
+                          "eventoDiaFim": "01",
+                          "eventoNivel": "adp",
+                          "eventoNome": "Emissão de Relatórios/Arquivo bancário",
+                          "eventoStatus": 3,
+                          "eventoTemTarefa": true,
+                          "eventoStatusDia": "01",
+                          "eventoOrdem": 30,
+                          "eventoRowid ": "0x000000000e81ea55"
+                      },
+                      {
+                          "eventoDiaInicio": "02",
+                          "eventoDiaFim": "01",
+                          "eventoNivel": "adp",
+                          "eventoNome": "Entrega da Guia GPS e Outras Entidades",
+                          "eventoStatus": 3,
+                          "eventoTemTarefa": true,
+                          "eventoStatusDia": "01",
+                          "eventoOrdem": 40,
+                          "eventoRowid ": "0x000000000e81ea56"
+                      },
+                      {
+                          "eventoDiaInicio": "01",
+                          "eventoDiaFim": "01",
+                          "eventoNivel": "cliente",
+                          "eventoNome": "Data do Crédito da 2ª  parcela do 13º Sa",
+                          "eventoStatus": 3,
+                          "eventoTemTarefa": true,
+                          "eventoStatusDia": "01",
+                          "eventoOrdem": 50,
+                          "eventoRowid ": "0x000000000e81ea57"
+                      }
+                  ]
+              }
+          ]
+      }
+  ]
+}

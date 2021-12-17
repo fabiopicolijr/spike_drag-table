@@ -1,0 +1,359 @@
+.container{
+  border: solid 1px #ddd;
+  border-top: 0;
+  min-width: 1250px;
+  min-height: 600px;
+}
+
+.no-gutters {
+  margin-right: 0;
+  margin-left: 0;
+
+}
+.select-date{
+  color: #212529;
+  font-size: 1.75rem;  
+}
+  .select-date__month{
+    font-size: 1.75rem;
+    font-weight: bold;    
+  }
+
+.status{    
+  color: #212529;
+  margin-right: 1rem;     
+}
+  .status__legend{              
+    color: white;    
+    font-weight: bold;
+    font-size: 0.813rem;   
+    text-align: center;
+        
+    border-radius: 0.313rem;
+    padding: 0.11rem 0.5rem;
+  }
+
+    .status__legend span{
+      margin-right: 0.5rem;
+    }
+
+    .status__legend--not-started{
+      background-color:#888f9a;      
+    }
+
+    .status__legend--on-time{
+      background-color: #17a2b8;      
+    }
+
+    .status__legend--finished{
+      background-color: #28a745;      
+    }
+
+    .status__legend--expires-today{
+      background-color: #ffc107;      
+    }
+
+    .status__legend--delayed{
+      background-color: #dc3545;      
+    }
+
+.payment-info__label{
+  color: #6c757d;
+  font-size: 13px;
+  display: block;
+}
+
+.payment-info__date{
+  font-weight: bold;
+  color: #212529;
+  font-size: 16px;
+}
+
+.show-events label{
+  padding-top: 0.2rem;
+  color: #212529;
+  font-size: 0.813rem;    
+}
+
+.show-events svg{
+  color: #17a2b8;
+  margin-left: 0.1rem;  
+}
+
+.js-select-date__button{
+  margin-bottom: 0.25rem;
+}
+
+#js_schedule_spinner{
+    margin-top: 15rem;
+}
+
+tr.event_hover:hover{
+  background-color: #fff;
+  box-shadow: 0px 2.5px 6px 0.8px #d8d8d8;
+}
+
+.table tbody+tbody{
+  border: 0;  
+}
+
+.schedule{
+  table-layout: fixed;
+}
+
+.schedule td, .schedule th{    
+  border-top: 1px solid #dee2e6;
+  border-bottom: 1px solid #dee2e6;
+  border-left: 1px dashed #dee2e6;
+  border-right: 1px dashed #dee2e6;  
+  
+  height: 2rem;
+  width: 1.2rem;
+  padding: 0;
+  margin: 0;   
+
+  color: #6c757d;
+  font-weight: normal;   
+  font-size: 0.813rem;
+}
+
+  .schedule thead th, .schedule thead td{
+    border: 0;
+  }
+
+  .schedule__header th{
+      padding-bottom: 0.625rem;
+      text-align: center; 
+    }
+
+    .schedule__header th span{
+        color: #FFF;
+        text-align: left;            
+      }          
+
+      .schedule__header th.schedule__header--column-first{
+        width: 19rem;
+        text-align: left; 
+      }
+
+      .schedule__header .schedule__header--column-last{          
+        width: 10rem;
+        padding-left: 1rem;
+        text-align: left;                     
+      }
+  
+  .schedule__body{
+      background-color: #fafafa;
+  }
+        
+  .schedule__body td, .schedule__body th{
+    padding-top: 0rem;      
+  }
+
+    .schedule__body td{
+      padding-left: 0.1rem;
+    }
+
+    .schedule__body tr:first-child td{ 
+      border-top: 0;
+    }
+
+    .schedule__body tr td:last-child{
+      width: 15rem;         
+    }
+
+    .schedule__body .schedule__body--column-first{ 
+      color: #212529;
+      text-align: left;
+      font-weight: bold;        
+      width: 15rem !important;          
+      cursor: pointer;
+      border-left: 0;      
+    }
+
+    .schedule__body td.schedule__body--column-first{           
+      padding: 0.4rem 0 0 1rem;
+      font-weight: normal;      
+    } 
+
+    .schedule__body--column-first svg{
+      margin-left: 0.2rem;
+    }
+    
+    .schedule__body td.schedule__body--column-last{     
+      border-left: 0;
+      border-right: 0;
+      
+      color: #212529;
+      text-transform: capitalize;
+      vertical-align: middle;
+      
+      padding-left: 1rem;
+    }
+
+    .schedule__body .schedule__body--group{
+      color: #212529;
+      text-align: left;
+      font-size: 1rem;
+      font-weight: bold;
+
+      line-height: 1.875rem;
+      padding-top: 1.25rem;
+    }
+
+    .schedule__body .schedule__body--group svg{
+      margin-left: 0.5rem;
+    }
+
+.schedule th.marker{
+  font-weight: bold;
+}
+
+.schedule td.marker--grey{
+  background-color: rgba(23, 162, 184, 0.05);
+}
+
+.schedule td.marker--red{
+  background-color: rgba(220, 53, 69, 0.05);;
+}
+
+.line-wrapper{
+  position: relative;
+  width: 102.7%;
+}
+
+  .line-wrapper__line{                      
+    position: absolute;
+    height: 0px;              
+    width: 102.7%; 
+    top:1.95rem;         
+    left: -1rem;
+    border-bottom: 1px solid #d8d8d8;
+    box-shadow: 0px 2.5px 6px 0.8px #d8d8d8;
+  }  
+
+.schedule td.column__planned{
+  background-color: rgba(136, 143, 154, 0.15);  
+}
+
+.schedule th span.panel-blocked{
+  position: absolute;
+  top: -1.2rem;  
+  color: #dc3545;
+}
+.schedule th.column__blocked{  
+  color: #dc3545;  
+}
+
+.schedule td.column__blocked{
+  background-color: rgba(220, 53, 69, 0.05);    
+}
+
+.gantt__wrapper{
+  position: relative;
+}
+
+.gantt__bar{
+  position: absolute;  
+  height: 0.625rem;  
+  background-color: blue;  
+  border-radius: 0.063rem;
+  top: 0.66rem;
+  z-index: 2;
+  left: 0;
+  width: 1.35rem;
+}
+
+.gantt__bar--not-started{
+  background-color:#888f9a;      
+}
+
+.gantt__bar--on-time{
+  background-color: #17a2b8;      
+}
+
+.gantt__bar--finished{
+  background-color: #28a745;      
+}
+
+.gantt__bar--expires-today{
+  background-color: #ffc107;      
+}
+
+.gantt__bar--delayed{
+  background-color: #dc3545;      
+}
+
+.bi-caret-down-fill--blue, .bi-caret-up-fill--blue{
+  color: #006699;
+}
+
+.sem-resultados .card{
+  height: 14rem;
+  padding: 0 5rem;
+  width: 76rem;
+  margin-left: 1rem;
+
+  font-size: 1.25rem;
+  background-color: #f8f9fa;
+  border: none;
+}
+
+.title__msg{
+  margin-top: 3rem;
+  width: 24rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+  display: block;
+}
+
+  .title__msg--in-build{
+    color: #069;
+  }
+
+  .title__msg--not-exist{
+    color: #6c757d;
+  }
+
+  .title__msg--on-approval{
+    color: #fcca11;
+  }
+
+.text-msg{
+  margin-bottom: 3rem;
+  width: 28.3rem;
+  font-size: 1rem;
+  font-weight: normal;
+  line-height: normal;
+  text-align: center;
+  color: #6c757d;
+  display: block;     
+}
+
+.column_last_icon{
+  display:flex; 
+  justify-content: space-between;
+  align-items:center;
+}
+
+.bi-text-left--blue{
+  margin-right: 1rem;
+  color: #006699;
+  visibility: hidden;
+  cursor: pointer;
+}
+
+.bi-text-left--gray{
+  margin-right: 1rem;
+  color: #dee2e6;
+  visibility: hidden; 
+}
+
+tr.event_hover:hover .bi-text-left--blue{
+  visibility: visible;
+}
+
+tr.event_hover:hover .bi-text-left--gray{
+  visibility: visible;
+}

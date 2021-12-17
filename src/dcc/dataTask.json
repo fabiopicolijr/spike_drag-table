@@ -1,0 +1,62 @@
+{
+    "ttdetalhes": [
+            {
+            "grupoNome": "FOLHA DE PAGAMENTO MENSAL",
+            "grupoOrdem": 30,
+            "eventoNome": "Cálculo e Conferencia da Folha teste 123",
+            "eventoOrdem": 40,
+            "responsavel": "adp",
+            "statusEvento": 5,
+            "statusTotal": 4,
+            "totalConc": 1,
+            "ttbporeq": [
+                {
+                "numBporeq": " 5458303 / 2021",
+                "ordem": 1,
+                "descricao": "Admissão/CLT",
+                "dtSolicitado": "18/10",
+                "dtProcessando": "18/10",
+                "dtEncerrado": null,
+                "statusBporeq": 5
+                },
+                {
+                "numBporeq": " 5396532 / 2021",
+                "ordem": 1,
+                "descricao": "Admissão/CLT",
+                "dtSolicitado": "14/10",
+                "dtProcessando": null,
+                "dtEncerrado": null,
+                "statusBporeq": 5
+                },
+                {
+                "numBporeq": " 5458305 / 2021",
+                "ordem": 1,
+                "descricao": "Admissão/CLT",
+                "dtSolicitado": "18/10",
+                "dtProcessando": null,
+                "dtEncerrado": null,
+                "statusBporeq": 5
+                },
+                {
+                "numBporeq": " 5458306 / 2021",
+                "ordem": 1,
+                "descricao": "Admissão/CLT",
+                "dtSolicitado": "18/10",
+                "dtProcessando": null,
+                "dtEncerrado": null,
+                "statusBporeq": 5
+                },
+                
+                {
+                "numBporeq": " 5458304 / 2021",
+                "ordem": 2,
+                "descricao": "Admissão/CLT",
+                "dtSolicitado": "18/10",
+                "dtProcessando": null,
+                "dtEncerrado": null,
+                "statusBporeq": 3
+                }
+            ]
+        }
+    ]
+}

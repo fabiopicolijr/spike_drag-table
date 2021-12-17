@@ -1,0 +1,16 @@
+{
+  "ttContador": [
+      {
+          "naoIniciado": 5,
+          "dentroPrazo": 0,
+          "concluido": 30,
+          "expiraHoje": 0,
+          "atrazado": 0,
+          "meuEvento": true,
+          "statusCronog": "CON"
+     
+              
+          
+      }
+  ]
+}

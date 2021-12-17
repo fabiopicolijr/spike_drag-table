@@ -1,0 +1,13 @@
+{
+    "dsFolha": {
+        "ttfolha": [
+            {
+                "datPagMensal": "31/10",
+                "datPagQuinzenal": "15/10",
+                "datEncerraFolha": "26/10",
+                "inicioBloqueio": 16,
+                "fimBloqueio": 29
+            }
+        ]
+    }
+}
