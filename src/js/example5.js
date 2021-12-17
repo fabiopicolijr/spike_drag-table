@@ -1,33 +1,37 @@
-const slider = $('.wrapper-schedule');
-const sliderContent = $('.schedule');
+const Slider = $('.wrapper-schedule');
+const SliderContent = $('.schedule');
 
-slider['mouseDown'] = false;
-slider['startX'] = 0;
+Slider['mouseDown'] = false;
+Slider['startX'] = 0;
+Slider['scrolLeftStartX'] = 0;
 
 function handleStartDragging(event){
-  slider.mouseDown = true;  
-  slider.startX = event.pageX - slider.offset().left;  
-  sliderContent.css('cursor', 'grabbing');
+  Slider.mouseDown = true;    
+  Slider.startX = event.pageX - Slider.offset().left;
+  Slider.scrolLeftStartX = Slider.scrollLeft();
+
+  SliderContent.css('cursor', 'grabbing');
 }
 
 function handleStopDragging() { 
-  slider.mouseDown = false;
-  sliderContent.css('cursor', 'grab'); 
+  Slider.mouseDown = false;
+
+  SliderContent.css('cursor', 'grab'); 
 }
 
 function handleDragging(event) {  
   event.preventDefault();
 
-  if(!slider.mouseDown) return;
+  if(!Slider.mouseDown) return;
 
-  const x = event.pageX - slider.offset().left;
-  const scroll = x - slider.startX;
+  const x = event.pageX - Slider.offset().left;
+  const scroll = x - Slider.startX;
 
-  slider.scrollLeft(slider.scrollLeft() - scroll);
-  sliderContent.css('cursor', 'grabbing'); 
+  Slider.scrollLeft(Slider.scrolLeftStartX - scroll);
+  SliderContent.css('cursor', 'grabbing'); 
 }
 
-slider.on('mousedown', handleStartDragging);
-slider.on('mouseup', handleStopDragging);
-slider.on('mouseleave', handleStopDragging);
-slider.on('mousemove', handleDragging);
+Slider.on('mousedown', handleStartDragging);
+Slider.on('mouseup', handleStopDragging);
+Slider.on('mouseleave', handleStopDragging);
+Slider.on('mousemove', handleDragging);

@@ -12,11 +12,13 @@
 	<link rel="stylesheet" href="spike-table.css">
 	<link rel="stylesheet" href="londing.css">
 	<link rel="stylesheet" href="modais.css">
+	<link rel="stylesheet" href="../styles/example6.css">
 
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 	<script src="..\..\node_modules\bootstrap\dist\js\bootstrap.min.js" defer></script>
 
+	<script src="../js/example6.js" defer></script>
 
 </head>
 
@@ -113,7 +115,7 @@
 			</div>
 		</header>
 
-		<div id="js_wrapper_schedule" class="row col-12 mx-0 mt-4">
+		<div id="js_wrapper_schedule" class="row  mx-0 mt-4">
 			<div class="line-wrapper">
 				<div class="line-wrapper__line"></div>
 			</div>
@@ -506,7 +508,7 @@
 
 		function createTableHTML() {
 			const dinamicTable =
-				'<table class="table schedule" id="js-tbody-table">' +
+				'<table class="table schedule" id="js-tbody-table" >' +
 				'<thead class="schedule__header" id="js-head-table"></thead>' +
 				'</table>';
 
@@ -573,12 +575,12 @@
 		function addTHGroupHTML(groupName) {
 
 			return '<th class="schedule__body--column-first schedule__body--group">' + groupName +
-				'<svg id="abre_icone" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-down-fill bi-caret-down-fill--blue d-none" viewBox="0 0 16 16">' +
-				'<path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>' +
-				'</svg>' +
-				'<svg id="fecha_icone" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-up-fill bi-caret-up-fill--blue" viewBox="0 0 16 16">' +
-				'<path d="m7.247 4.86-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z"/>' +
-				'</svg>' +
+				// '<svg id="abre_icone" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-down-fill bi-caret-down-fill--blue d-none" viewBox="0 0 16 16">' +
+				// '<path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>' +
+				// '</svg>' +
+				// '<svg id="fecha_icone" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-up-fill bi-caret-up-fill--blue" viewBox="0 0 16 16">' +
+				// '<path d="m7.247 4.86-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z"/>' +
+				// '</svg>' +
 				'</th>';
 		}
 
